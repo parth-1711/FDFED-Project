@@ -1,16 +1,23 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import "./App.css";
+import CollectProductDetails from "./pages/CollectProductDetails";
+import SellForm from "./components/sellForm";
+import ProductDetails from "./pages/ProductDetails";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>This is home page</div>
-    </>
-  )
+  const [count, setCount] = useState(0);
+  const router=createBrowserRouter([
+    {
+      path:'/sellProducts',
+      element:<CollectProductDetails/>
+    },
+    {
+      path:'/productDetails',
+      element:<ProductDetails/>
+    }
+  ])
+  return <RouterProvider router={router} />;;
 }
 
-export default App
+export default App;
