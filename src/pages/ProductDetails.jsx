@@ -1,6 +1,7 @@
 import React from "react";
 import classes from "./ProductDetails.module.css";
 import ProductImageCarousel from "../components/ProductImageCarousel";
+import { purple } from "@mui/material/colors";
 
 const ProductDetails = () => {
   const product = {
@@ -17,36 +18,58 @@ const ProductDetails = () => {
     ],
   };
   return (
-    <div className="row">
-      <div className="col col-mid-auto">
-        <div className={classes.carousel}>
-          <ProductImageCarousel images={product.images} />
+    <div className="grid grid-cols-2 gap-4">
+      <div className="flex-wrap justify-center p-6">
+        <div className={classes.centerer}>
+          <div className={classes.carousel}>
+            <ProductImageCarousel images={product.images} />
+          </div>
         </div>
 
         <div className={classes.offerForm}>
-          <p>Expected Price:-</p>
-          <h3> ₹ {product.price}</h3>
+          <br />
 
+          <p><span className={classes.textgradient}>Expected Price:-</span></p>
+          <h3> ₹ {product.price}</h3>
+          <br />
+          <hr />
+          <br />
           <form>
-            <label>Entered Price to Offer:-</label>
-            <div className="input-group mb-3" style={{width:'15rem'}}>
+            <label><span className={classes.textgradient}>Entered Price to Offer : -</span><br /></label>
+
+            {/* <div className="input-group mb-3" style={{ width: "15rem" }}>
+              
               <span className="input-group-text">₹</span>
               <input type="text" className="form-control" />
+            </div> */}
+            <div className={classes.input_controls}>
+              <span>₹</span>
+              <input type="text" />
             </div>
-            <button type="button" className="btn btn-outline-primary">Offer</button>
+            {/* <button type="button" className="btn btn-outline-primary">
+              Offer
+            </button> */}
+            <div className={classes.offerbtn}>
+              <button type="button">Add Expense</button>
+            </div>
           </form>
         </div>
       </div>
-      <div className="col col-mid-1">
+      <div className="">
         <div className={classes.title}>
-          <h3>{product.title}</h3>
+          <h3 className={classes.textgradient}>{product.title}</h3>
         </div>
         <div className={classes.description}>
-          <p>Owner:- {product.owner}</p>
+          <p> <span className={classes.textgradient}>Owner :- </span> {product.owner}</p>
           <br />
-          <p>Duration of Usage:- {product.usageDuration}</p>
+          <hr />
           <br />
-          <p>Description:-</p>
+          <p><span className={classes.textgradient}>Duration of Usage :- </span> {product.usageDuration}</p>
+          <br />
+          <hr />
+          <br />
+          <p className={classes.textgradient}>Description:-</p>
+          <br />
           {product.description}
         </div>
       </div>

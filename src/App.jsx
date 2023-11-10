@@ -6,6 +6,7 @@ import SellForm from "./components/sellForm";
 import ProductDetails from "./pages/ProductDetails";
 import SellerBargain from "./pages/Offers";
 import Offers from "./pages/Offers";
+import UserProfile from "./pages/UserProfile";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -21,6 +22,10 @@ function App() {
     {
       path:'/Offers',
       element:<Offers/>
+    },
+    {
+      path:'/UserProfile',
+      element:<UserProfile/>
     }
   ])
   return <RouterProvider router={router} />;;
