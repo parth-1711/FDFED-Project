@@ -43,7 +43,7 @@ const ProductDetails = () => {
               <input type="text" className="form-control" />
             </div> */}
             <div className={classes.input_controls}>
-              <span>₹</span>
+              {/* <span>₹</span> */}
               <input type="text" />
             </div>
             {/* <button type="button" className="btn btn-outline-primary">
