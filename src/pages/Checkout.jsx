@@ -450,14 +450,9 @@ export default function Checkout() {
           borderBottom: (t) => `1px solid ${t.palette.divider}`,
         }}
       >
-        <Toolbar>
-          <Typography variant="h6" color="inherit" noWrap>
-            Company name
-          </Typography>
-        </Toolbar>
       </AppBar>
       <Container component="main" maxWidth="sm" sx={{ mb: 4 }}>
-        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6 }, p: { xs: 2, md: 3 } }}>
+        <Paper variant="outlined" sx={{ my: { xs: 3, md: 6, }, p: { xs: 2, md: 3 } }}>
           <Typography component="h1" variant="h4" align="center">
             Checkout
           </Typography>
@@ -492,7 +487,7 @@ export default function Checkout() {
                 <Button
                   variant="contained"
                   onClick={handleNext}
-                  sx={{ mt: 3, ml: 1 }}
+                  sx={{ mt: 3, ml: 1, backgroundColor:"#b219d2" }}
                 >
                   {activeStep === steps.length - 1 ? 'Place order' : 'Next'}
                 </Button>
@@ -505,3 +500,6 @@ export default function Checkout() {
     </React.Fragment>
   );
 }
+
+
+// import @mui/material, @emotion/styled, @emotion/react. 

@@ -10,6 +10,8 @@ import UserProfile from "./pages/UserProfile";
 import Navbar from "./components/Navbar";
 import Root from "./pages/Root";
 import Checkout from "./pages/Checkout";
+import Admin from "./pages/Admin";
+
 function App() {
   const [count, setCount] = useState(0);
   const router = createBrowserRouter([
@@ -37,9 +39,14 @@ function App() {
         {
           path:"/checkout",
           element:<Checkout />,
+        },
+        {
+          path:"/admin",
+          element:<Admin />,
         }
-      ],
+      ],  
     },
+    
   ]);
   return <RouterProvider router={router} />;
 }
