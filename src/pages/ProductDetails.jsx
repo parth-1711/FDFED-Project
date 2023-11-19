@@ -18,7 +18,7 @@ const ProductDetails = () => {
     ],
   };
   return (
-    <div className="grid grid-cols-2 gap-4">
+    <div className="grid grid-cols-2 gap-4 flex-wrap">
       <div className="flex-wrap justify-center p-6">
         <div className={classes.centerer}>
           <div className={classes.carousel}>
