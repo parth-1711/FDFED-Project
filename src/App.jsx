@@ -16,6 +16,10 @@ import Landing from "./pages/Landing";
 import LoginForm from "./pages/Login";
 import RegistrationForm from "./pages/SignUp";
 import Myoffers from "./pages/Myoffers";
+import Home from "./pages/Home"
+import AfterSearch from "./pages/AfterSearch"
+import Myoffers from "./pages/Myoffers"
+
 
 function App() {
   const [count, setCount] = useState(0);

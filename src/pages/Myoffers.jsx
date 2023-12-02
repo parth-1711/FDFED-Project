@@ -63,7 +63,7 @@ const Myoffers = () => {
         ))}
       </div>
     </div>
-  );
+  );  
 };
 
 export default Myoffers;
