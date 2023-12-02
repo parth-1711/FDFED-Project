@@ -16,23 +16,24 @@ import Landing from "./pages/Landing";
 import LoginForm from "./pages/Login";
 import RegistrationForm from "./pages/SignUp";
 import Myoffers from "./pages/Myoffers";
-import Home from "./pages/Home"
+// import Home from "./pages/Home"
 import AfterSearch from "./pages/AfterSearch"
-import Myoffers from "./pages/Myoffers"
+// import Myoffers from "./pages/Myoffers"
 
 
 function App() {
   const [count, setCount] = useState(0);
   const router = createBrowserRouter([
     {
+      path:'/',
+      element:<Landing/>
+    },
+    {
       path: "/",
       element: <Root />,
       id: "root",
       children: [
-        {
-          path:'/',
-          element:<Landing/>
-        },
+       
         {
           path:"/Home",
           element:<Home/>

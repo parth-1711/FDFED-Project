@@ -1,4 +1,9 @@
+body{
+  background-color: #242424;
+}
+
 footer{
+  margin-top: 10rem;
   position: relative;
   width: 100%;
   background: #d857ff;
