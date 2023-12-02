@@ -16,7 +16,7 @@ const ProductImageCarousel = ({ images }) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', flexDirection: 'column' }}>
       <div style={{ width: '450px', position: 'relative' }}>
-        <img src={images[currentIndex]} alt="carousel-img" style={{ width: '100%', height: '20rem' }} />
+        <img src={images[currentIndex]} alt={`carousel-img${currentIndex}`} style={{ width: '100%', height: '20rem' }} />
         <div style={{ position: 'absolute', top: '50%', left: '20px', cursor: 'pointer' }} onClick={goToPrevSlide}>
           {"<"}
         </div>

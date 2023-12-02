@@ -1,28 +1,82 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import classes from "./ProductDetails.module.css";
 import ProductImageCarousel from "../components/ProductImageCarousel";
 import { purple } from "@mui/material/colors";
+import { useNavigate, useSearchParams } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const ProductDetails = () => {
+  const auth=useSelector((state)=>state.auth);
+  const navigate=useNavigate();
+  const [params]=useSearchParams();
+  console.log(params.get('param'));
   const product = {
     title: "Product 1",
     description: "This is test product",
-    usageDuration: "5 years",
-    price: 5000,
+    oldness: "5 years",
+    expectedPrice: 5000,
     address: "wsfdxgfchgvjhbjnkjuyfjgc",
     owner: "Parth",
-    images: [
+    imgs: [
       "https://www.trustedreviews.com/wp-content/uploads/sites/54/2022/11/PS5-Review-8-scaled.jpg",
       "https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/blt054c12973dc65d3e/60db71928491e60f790b1b87/f61138da5e0a3af7c7c83b6166f1cb03dbfee30f.jpg",
       "https://media.cnn.com/api/v1/images/stellar/prod/spider-man-2-ps5-hands-on-lead-cnnu.jpg?c=16x9&q=h_720,w_1280,c_fill",
     ],
   };
+  const [product1,setProduct1]=useState(product);
+
+ 
+  useEffect(()=>{
+    let url='http://localhost:8000/getSingleProduct?productId='+params.get('param')
+    // console.log(url);
+    const fetchProducts=async()=>{
+        const response=await fetch(url);
+        const data=await response.json();
+        // console.log(data.product[0]);
+        setProduct1(data.product[0])
+        // setProductList(data.products)
+        // return data;
+    }
+    fetchProducts();
+    
+},[])
+
+  // console.log(product1);
+  
+  const priceRef=useRef();
+  const submitHandler=async(event)=>{
+      event.preventDefault();
+      if(!auth.isAuth){
+        navigate('/login');
+      }
+      console.log(priceRef.current.value);
+      let Offer={
+        offerer:auth.user.uname,
+        productName:product1.title,
+        productid:params.get('param'),
+        owner:product1.owner,
+        amount:priceRef.current.value,
+      }
+      const response=await fetch('http://localhost:8000/postOffer',
+      {
+        method:'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Offer),
+      }
+      )
+
+      const result=await response.json();
+      navigate('/MyOffers')
+      // console.log(result);
+  }
   return (
-    <div className="grid grid-cols-2 gap-4 flex-wrap">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
       <div className="flex-wrap justify-center p-6">
         <div className={classes.centerer}>
           <div className={classes.carousel}>
-            <ProductImageCarousel images={product.images} />
+            <ProductImageCarousel images={product1.imgs} />
           </div>
         </div>
 
@@ -30,11 +84,11 @@ const ProductDetails = () => {
           <br />
 
           <p><span className={classes.textgradient}>Expected Price:-</span></p>
-          <h3> ₹ {product.price}</h3>
+          <h3> ₹ {product1.expectedPrice}</h3>
           <br />
           <hr />
           <br />
-          <form>
+          <form onSubmit={submitHandler}>
             <label><span className={classes.textgradient}>Entered Price to Offer : -</span><br /></label>
 
             {/* <div className="input-group mb-3" style={{ width: "15rem" }}>
@@ -44,33 +98,33 @@ const ProductDetails = () => {
             </div> */}
             <div className={classes.input_controls}>
               {/* <span>₹</span> */}
-              <input type="text" />
+              <input type="text" ref={priceRef} />
             </div>
             {/* <button type="button" className="btn btn-outline-primary">
               Offer
             </button> */}
             <div className={classes.offerbtn}>
-              <button type="button">Add Expense</button>
+              <input type="submit" value={'Offer'}/>
             </div>
           </form>
         </div>
       </div>
       <div className="">
         <div className={classes.title}>
-          <h3 className={classes.textgradient}>{product.title}</h3>
+          <h3 className={classes.textgradient}>{product1.title}</h3>
         </div>
         <div className={classes.description}>
-          <p> <span className={classes.textgradient}>Owner :- </span> {product.owner}</p>
+          <p> <span className={classes.textgradient}>Owner :- </span> {product1.owner}</p>
           <br />
           <hr />
           <br />
-          <p><span className={classes.textgradient}>Duration of Usage :- </span> {product.usageDuration}</p>
+          <p><span className={classes.textgradient}>Duration of Usage :- </span> {product1.oldness}</p>
           <br />
           <hr />
           <br />
           <p className={classes.textgradient}>Description:-</p>
           <br />
-          {product.description}
+          {product1.description}
         </div>
       </div>
     </div>

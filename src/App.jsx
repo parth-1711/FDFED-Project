@@ -11,19 +11,33 @@ import Navbar from "./components/Navbar";
 import Root from "./pages/Root";
 import Checkout from "./pages/Checkout";
 import Admin from "./pages/Admin";
-import Home from "./pages/Home"
+import Home from'./pages/Home';
+import Landing from "./pages/Landing";
+import LoginForm from "./pages/Login";
+import RegistrationForm from "./pages/SignUp";
+import Myoffers from "./pages/Myoffers";
+// import Home from "./pages/Home"
 import AfterSearch from "./pages/AfterSearch"
-import Myoffers from "./pages/Myoffers"
+// import Myoffers from "./pages/Myoffers"
 
 
 function App() {
   const [count, setCount] = useState(0);
   const router = createBrowserRouter([
     {
+      path:'/',
+      element:<Landing/>
+    },
+    {
       path: "/",
       element: <Root />,
       id: "root",
       children: [
+       
+        {
+          path:"/Home",
+          element:<Home/>
+        },
         {
           path: "/sellProducts",
           element: <CollectProductDetails />,
@@ -45,23 +59,25 @@ function App() {
           element:<Checkout />,
         },
         {
-          path:"/admin",
-          element:<Admin />,
-        },
-        {
-          path:"/home",
-          element:<Home />,
-        },
-        {
-          path:"/afterSearch",
-          element:<AfterSearch />,
-        },
-        {
-          path:"/myoffers",
-          element:<Myoffers />,
+          path:'/MyOffers',
+          element:<Myoffers/>
         }
+        
       ],  
+      
     },
+    {
+      path:'/login',
+      element:<LoginForm/>
+    },
+    {
+      path:'/signUp',
+      element:<RegistrationForm/>
+    },
+    {
+      path:"/admin",
+      element:<Admin />,
+    }
     
   ]);
   return <RouterProvider router={router} />;
