@@ -11,6 +11,11 @@ import Navbar from "./components/Navbar";
 import Root from "./pages/Root";
 import Checkout from "./pages/Checkout";
 import Admin from "./pages/Admin";
+import Home from'./pages/Home';
+import Landing from "./pages/Landing";
+import LoginForm from "./pages/Login";
+import RegistrationForm from "./pages/SignUp";
+import Myoffers from "./pages/Myoffers";
 
 function App() {
   const [count, setCount] = useState(0);
@@ -20,6 +25,14 @@ function App() {
       element: <Root />,
       id: "root",
       children: [
+        {
+          path:'/',
+          element:<Landing/>
+        },
+        {
+          path:"/Home",
+          element:<Home/>
+        },
         {
           path: "/sellProducts",
           element: <CollectProductDetails />,
@@ -41,11 +54,25 @@ function App() {
           element:<Checkout />,
         },
         {
-          path:"/admin",
-          element:<Admin />,
+          path:'/MyOffers',
+          element:<Myoffers/>
         }
+        
       ],  
+      
     },
+    {
+      path:'/login',
+      element:<LoginForm/>
+    },
+    {
+      path:'/signUp',
+      element:<RegistrationForm/>
+    },
+    {
+      path:"/admin",
+      element:<Admin />,
+    }
     
   ]);
   return <RouterProvider router={router} />;

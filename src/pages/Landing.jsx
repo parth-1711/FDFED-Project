@@ -1,12 +1,15 @@
 import React from "react";
 import BannerBackground from "../Assets/home-banner-background.png";
 import { FiArrowRight } from "react-icons/fi";
-
+import "./Landing.css";
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
 
 const Landing = () => {
+  const isAuth = useSelector((state) => state);
+  console.log(isAuth);
   return (
-    <div className="home-container" style={{width:'100vw'}}>
-  
+    <div className="home-container" style={{ width: "100vw" }}>
       <div className="home-banner-container">
         <div className="home-bannerImage-container">
           <img src={BannerBackground} alt="" />
@@ -18,9 +21,11 @@ const Landing = () => {
           <p className="primary-text">
             lorem ipsum dolor sit amet, consectetur adip , lorem
           </p>
-          <button className="secondary-button">
-            Login <FiArrowRight />{" "}
-          </button>
+          <Link to='/login'>
+            <button className="secondary-button">
+              Login <FiArrowRight />{" "}
+            </button>
+          </Link>
         </div>
       </div>
     </div>

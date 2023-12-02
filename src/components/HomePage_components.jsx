@@ -1,10 +1,11 @@
 import React from 'react';
 import './CSS/HomeStyles.css';
 import './CSS/navbar.css';
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'jquery/dist/jquery.min.js'
-import 'bootstrap/dist/js/bootstrap.min.js'
+import { Link } from 'react-router-dom';
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'jquery/dist/jquery.min.js'
+// import 'bootstrap/dist/js/bootstrap.min.js'
 
 
 const MyComponent = () => {
@@ -156,57 +157,59 @@ const Corousel = () => {
   )
 }
 
-const Recommendations = () => {
-  const productList = [
-    {
-      _id: '1',
-      title: 'Sample Product 1',
-      setprice: 100,
-      address: 'Sample Address 1',
-    },
-    {
-      _id: '2',
-      title: 'Sample Product 2',
-      setprice: 150,
-      address: 'Sample Address 2',
-    },
-    {
-      _id: '3',
-      title: 'Sample Product 3',
-      setprice: 150,
-      address: 'Sample Address 2',
-    },
-    {
-      _id: '4',
-      title: 'Sample Product 4',
-      setprice: 150,
-      address: 'Sample Address 2',
-    },
-    {
-      _id: '1',
-      title: 'Sample Product 1',
-      setprice: 100,
-      address: 'Sample Address 1',
-    },
-    {
-      _id: '2',
-      title: 'Sample Product 2',
-      setprice: 150,
-      address: 'Sample Address 2',
-    },
-    {
-      _id: '3',
-      title: 'Sample Product 3',
-      setprice: 150,
-      address: 'Sample Address 2',
-    },
-    {
-      _id: '4',
-      title: 'Sample Product 4',
-      setprice: 150,
-      address: 'Sample Address 2',
-    },
-  ];
+const Recommendations = (props) => {
+  const productList=props.productList;
+  //  = [
+  //   {
+  //     _id: '1',
+  //     title: 'Sample Product 1',
+  //     setprice: 100,
+  //     address: 'Sample Address 1',
+  //   },
+  //   {
+  //     _id: '2',
+  //     title: 'Sample Product 2',
+  //     setprice: 150,
+  //     address: 'Sample Address 2',
+  //   },
+  //   {
+  //     _id: '3',
+  //     title: 'Sample Product 3',
+  //     setprice: 150,
+  //     address: 'Sample Address 2',
+  //   },
+  //   {
+  //     _id: '4',
+  //     title: 'Sample Product 4',
+  //     setprice: 150,
+  //     address: 'Sample Address 2',
+  //   },
+  //   {
+  //     _id: '1',
+  //     title: 'Sample Product 1',
+  //     setprice: 100,
+  //     address: 'Sample Address 1',
+  //   },
+  //   {
+  //     _id: '2',
+  //     title: 'Sample Product 2',
+  //     setprice: 150,
+  //     address: 'Sample Address 2',
+  //   },
+  //   {
+  //     _id: '3',
+  //     title: 'Sample Product 3',
+  //     setprice: 150,
+  //     address: 'Sample Address 2',
+  //   },
+  //   {
+  //     _id: '4',
+  //     title: 'Sample Product 4',
+  //     setprice: 150,
+  //     address: 'Sample Address 2',
+  //   },
+  // ];
+  // console.log(productList);
   const imagesArray = [
     'sample-image-1.jpg',
     'sample-image-2.jpg',
@@ -226,8 +229,8 @@ const Recommendations = () => {
     <div className="cardscon">
       <div className="category1">
         <div className="container">
-          {productList.slice(0, 16).map((product, index) => (
-            <a key={index} href={`/product?param=${product._id}`}>
+          {productList.slice(0,16).map((product, index) => (
+            <Link key={index} to={`/productDetails?param=${product._id}`}>
               <div
                 className="card"
                 style={{
@@ -253,13 +256,13 @@ const Recommendations = () => {
                     <h5>₹{product.setprice}</h5>
                   </div>
                   <hr style={{ marginTop: 0 }} />
-                  <div className="pdtdesc">{product.address}</div>
+                  {/* <div className="pdtdesc">{product.address}</div> */}
                   <div style={{ color: 'rgb(101, 101, 101)', fontSize: '13px', paddingLeft: '2px' }}>
                     posted 5 days ago
                   </div>
                 </div>
               </div>
-            </a>
+            </Link>
           ))}
         </div>
       </div>

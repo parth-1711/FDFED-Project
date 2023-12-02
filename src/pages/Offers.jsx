@@ -1,41 +1,29 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import Offer from '../components/Offer'
 import classes from './Offer.module.css'
+import { useSelector } from 'react-redux';
 
 const Offers = () => {
-  const OfferList=[
-    {
-      buyer:'abcef',
-      amount:50,
-      status:'Accecpted'
-    },
-    {
-      buyer:'abcef',
-      amount:50,
-      status:'Accecpted'
-    },
-    {
-      buyer:'abcef',
-      amount:50,
-      status:'Rejected'
-    },
-    {
-      buyer:'abcef',
-      amount:50,
-      status:'Rejected'
-    },
-    {
-      buyer:'abcef',
-      amount:50,
-      status:'Rejected'
-    },
-  ]
+  const [offers,setOffers]=useState([]);
+  const authSlice=useSelector((state)=>state.auth)
+  useEffect(()=>{
+    const fetchOffers=async()=>{
+      let response=await fetch('http://localhost:8000/getAllOffers'); 
+      let data=await response.json();
+      console.log(data);
+      setOffers(data.Offers.filter((offer)=>offer.owner===authSlice.user.uname));
+      
+    }
+    fetchOffers();
+  },[])
+  
+
   return (
     <div>
-      {OfferList.map((Ofr)=>{
+      {offers.map((Ofr)=>{
         return(
-          <div className={classes.ofrwpr}>
-            <Offer buyer={Ofr.buyer} amount={Ofr.amount} status={Ofr.status} />
+          <div className={classes.ofrwpr} key={Ofr._id}>
+            <Offer productName={Ofr.productName} productId={Ofr.productid} offerId={Ofr._id} buyer={Ofr.offerer} amount={Ofr.amount} status={Ofr.offerStatus} />
           </div>
         )
       })}
