@@ -3,9 +3,14 @@
 
 
 import React from 'react';
-import {product_card}from "../../constants/data.js";
+// import {product_card}from "../../constants/data.js";
+
+let product_card=[
+    
+];
 
 const Myoffers = () => {
+
   return (
     <div className="container">
       <h3 style={{ fontFamily: 'Arial, sans-serif', marginTop: '2%' , marginLeft: '2%' }}>Offers</h3>
@@ -23,7 +28,7 @@ const Myoffers = () => {
       ))}
       </div>
     </div>
-  );
+  );  
 };
 
 export default Myoffers;

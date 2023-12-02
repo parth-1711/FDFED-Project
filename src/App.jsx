@@ -11,6 +11,10 @@ import Navbar from "./components/Navbar";
 import Root from "./pages/Root";
 import Checkout from "./pages/Checkout";
 import Admin from "./pages/Admin";
+import Home from "./pages/Home"
+import AfterSearch from "./pages/AfterSearch"
+import Myoffers from "./pages/Myoffers"
+
 
 function App() {
   const [count, setCount] = useState(0);
@@ -43,6 +47,18 @@ function App() {
         {
           path:"/admin",
           element:<Admin />,
+        },
+        {
+          path:"/home",
+          element:<Home />,
+        },
+        {
+          path:"/afterSearch",
+          element:<AfterSearch />,
+        },
+        {
+          path:"/myoffers",
+          element:<Myoffers />,
         }
       ],  
     },
