@@ -1,18 +1,19 @@
 import React from 'react'
 import classes from './ProfileMenu.module.css'
+import { Link } from 'react-router-dom'
 
-const ProfileMenu = () => {
+const ProfileMenu = (props) => {
   return (
     <div className={classes.wrapper}>
       <div className='border-radius:0.25rem'>
         <ul>
-            <li>My Orders</li>
+            <li><Link to='/offers'>Offers Recieved</Link></li>
             <hr />
-            <li>My Offers</li>
+            <li><Link to='/MyOffers'>My Offers</Link></li>
             <hr />
-            <li>Saved Address</li>
+            <li><Link to='/savedAdress'>Saved Address</Link></li>
             <hr />
-            <li>Help Center</li>
+            <li> <Link to='/contact'>Help Center</Link></li>
         </ul>
     </div>
     </div>

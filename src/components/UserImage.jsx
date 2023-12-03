@@ -1,11 +1,11 @@
 import React from 'react'
 import classes from './UserImage.module.css'
 
-const UserImage = () => {
+const UserImage = ({user}) => {
   return (
     <div className={classes.imgdiv}>
         <img src="userLogo.png" alt="user" className='rounded-s-full rounded-e-full'/>
-        <p>User</p>
+        <p>{user.uname}</p>
     </div>
   )
 }

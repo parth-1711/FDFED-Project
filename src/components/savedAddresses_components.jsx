@@ -2,15 +2,15 @@ import React, { useState } from 'react';
 import './CSS/styles.css'
 import './CSS/navbar.css'
 
-import 'bootstrap/dist/css/bootstrap.css';
-import 'bootstrap/dist/css/bootstrap.min.css'
-import 'jquery/dist/jquery.min.js'
-import 'bootstrap/dist/js/bootstrap.min.js'
+// import 'bootstrap/dist/css/bootstrap.css';
+// import 'bootstrap/dist/css/bootstrap.min.css'
+// import 'jquery/dist/jquery.min.js'
+// import 'bootstrap/dist/js/bootstrap.min.js'
 
 const SavedAddresseshead = () => {
   return (
     <html>
-      <head>
+      {/* <head>
         <meta charSet="UTF-8" />
         <meta httpEquiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -18,7 +18,7 @@ const SavedAddresseshead = () => {
         <link rel="icon" type="image/x-icon" href="/images/logo.png" />
 
         {/* External Stylesheets */}
-        <link
+        {/* <link
           rel="stylesheet"
           href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
         />
@@ -35,12 +35,12 @@ const SavedAddresseshead = () => {
         />
 
         {/* Bootstrap JS */}
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+        {/* <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
 
         {/* Custom Stylesheets */}
-        <link rel="stylesheet" href="/CSS/styles.css" />
+        {/* <link rel="stylesheet" href="/CSS/styles.css" />
         <link rel="stylesheet" href="/CSS/navbar.css" />
-      </head>
+      </head> */}
       <body>
         {/* Your page content goes here */}
       </body>
@@ -191,7 +191,7 @@ const AddNewAddressForm = () => {
           <div id="empty-warning" className="hidden" style={{ textAlign: 'center', color: 'crimson' }}>
             Any field shouldn't be empty!
           </div>
-          <button className="add-btn" id="add-btn" style={{ position: 'absolute', right: '480px' }}>
+          <button className="add-btn" id="add-btn" style={{ position: 'absolute', right: '512px' }}>
             +
           </button>
           <br />

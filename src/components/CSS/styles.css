@@ -210,8 +210,8 @@
 
 
 .add-btn{
-  min-height: 50px;
-  width: 50px;
+  /* min-height: 50px;
+  width: 50px; */
   border-radius: 50%;
   color: #fff;
   font-size: 30px;

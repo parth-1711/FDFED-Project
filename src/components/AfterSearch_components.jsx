@@ -1,12 +1,13 @@
 import React from 'react';
 import './CSS/HomeStyles.css';
 import './CSS/navbar.css';
+// import './AfterSearch.css'
 // import 'bootstrap/dist/css/bootstrap.css';
 // import 'bootstrap/dist/css/bootstrap.min.css'
 // import 'jquery/dist/jquery.min.js'
 // import 'bootstrap/dist/js/bootstrap.min.js'
 
-const Aftersearch = () => {
+const Aftersearch = (props) => {
     const productList = [
         {
           _id: '1',
@@ -83,26 +84,26 @@ const Aftersearch = () => {
       
   return (
     
-    <div >
-      {productList.map((product, i) => (
+    <div className='justify-center p-16 ml-10'>
+      {props.productList.map((product, i) => (
         <div key={i} className="pdtelem">
           <div className="sort-product">
-            <img src={`/images/fsd-product/car-1-1.jpg`} style={{ objectFit: 'contain' }} alt='' />
+            <img src={product.imgs[0]} style={{ objectFit: 'contain' }} alt={product.title} />
 
             <div className="pdtdetails">
-              <div style={{ fontSize: '25px' }}>
+              <div style={{ fontSize: '25px',color:'black' }}>
                 {product.title}
               </div>
               <div style={{ fontWeight: 700, color: 'rgb(104, 103, 103)', fontSize: '18px', paddingTop: '5px' }}>
-                ₹ {product.setprice}
+                ₹ {product.expectedPrice}
               </div>
 
               <div style={{ color: 'rgb(104, 103, 103)', fontSize: '15px', paddingTop: '5px' }}>
-                ₹ {product.address}
+                {product.address}
               </div>
 
               <div style={{ color: 'gray', fontSize: '15px', paddingTop: '5px' }}>
-                {product.howold} old
+                {product.oldness} old
               </div>
               <div style={{ color: 'gray', fontSize: '13px' }}>
                 posted 5 days ago
@@ -110,7 +111,7 @@ const Aftersearch = () => {
             </div>
 
             <div className="detailsbtn" style={{ width: '20vw' }}>
-              <a href={`/product?param=${product._id}`}>
+              <a href={`/productDetails?param=${product._id}`}>
                 <button type="submit" className="btn btn-success" style={{ position: 'absolute', right: '400px', backgroundColor: 'rgb(111, 20, 197)' }}>
                   More Details
                 </button>

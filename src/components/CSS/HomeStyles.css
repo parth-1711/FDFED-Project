@@ -220,8 +220,8 @@ main{
     justify-content: center;
     height: 10rem;
     border-radius: 3px;
-    margin-left: 2.5rem;
-    margin-top: 0.5rem;
+    /* margin-left: 2.5rem;
+    margin-top: 0.5rem; */
     width: 70%;
 }
 
@@ -532,7 +532,7 @@ body {
     width: 73vw;
     margin-left: 3rem;
     border-radius: 2px;
-
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
     border: 0.25px solid rgb(232, 232, 232);
 }
 
@@ -546,9 +546,9 @@ body {
 }
 
 .pdtdetails{
-    position: absolute;
+    position: relative;
     width: 60vw;
-    left:300px;
+    /* left:300px; */
     margin-top: 1rem;
 }
 

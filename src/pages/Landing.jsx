@@ -21,11 +21,23 @@ const Landing = () => {
           <p className="primary-text">
             lorem ipsum dolor sit amet, consectetur adip , lorem
           </p>
-          <Link to='/login'>
-            <button className="secondary-button">
-              Login <FiArrowRight />{" "}
-            </button>
-          </Link>
+          <div className="inline m-7">
+            <Link to="/login" className="inline">
+              <button className="secondary-button">
+                Login <FiArrowRight />{" "}
+              </button>
+            </Link>
+          </div>
+
+          <br />
+          <br />
+          <div className="inline m-7">
+            <Link to="/SignUp" className="inline">
+              <button className="secondary-button">
+                Sign Up <FiArrowRight />{" "}
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

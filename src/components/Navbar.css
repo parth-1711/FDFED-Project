@@ -12,6 +12,7 @@ nav {
   color: white;
   position: sticky;
   top: 0;
+  z-index: 50;
 }
 
 nav .title {
@@ -143,8 +144,9 @@ nav .menu span {
 }
 
 .overlay-content {
-  background-color: white;
-  padding: 20px;
+  /* background-color: #3e3e3e; */
+  text-align: center;
+  padding: 5rem;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
   z-index: 2;
