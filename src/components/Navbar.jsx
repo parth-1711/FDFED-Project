@@ -34,7 +34,7 @@ export const Navbar = () => {
         <Link to="/home" className="title">
           <div className="logo">
             <img
-              src="logo.png"
+              src="logo2.png"
               alt="phnx logo"
               style={{ height: "3rem" }}
             ></img>

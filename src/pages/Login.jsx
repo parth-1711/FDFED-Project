@@ -44,9 +44,9 @@ const LoginForm = () => {
         style={{ maxWidth: "1000px" }}
       >
         <div className="md:flex w-full">
-          <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+          <div className="hidden md:block w-1/2 bg-[#000] py-10 px-10">
             <img
-              src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"
+              src="logo2.png"
               alt="Side Image"
               className="object-cover object-center w-full h-full rounded-full"
             />

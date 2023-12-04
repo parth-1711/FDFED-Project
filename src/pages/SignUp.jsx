@@ -30,9 +30,9 @@ const RegistrationForm = () => {
     <div className="min-w-screen min-h-screen bg-gray-900 flex items-center justify-center px-5 py-5">
       <div className="bg-gray-100 text-gray-500 rounded-3xl shadow-xl w-full overflow-hidden" style={{ maxWidth: '1000px' }}>
         <div className="md:flex w-full">
-          <div className="hidden md:block w-1/2 bg-indigo-500 py-10 px-10">
+          <div className="hidden md:block w-1/2 bg-[#000] py-10 px-10">
             <img
-              src="https://i.pinimg.com/originals/60/fd/e8/60fde811b6be57094e0abc69d9c2622a.jpg"
+              src="logo2.png"
               alt="Side Image"
               className="object-cover object-center w-full h-full rounded-full"
             />
