@@ -1,5 +1,6 @@
 import React from "react";
 import classes from "./UploadedProducts.module.css";
+import { Link } from "react-router-dom";
 
 const OfferList = [
   {
@@ -29,27 +30,42 @@ const OfferList = [
   },
 ];
 
-const UploadedProducts = () => {
+const UploadedProducts = ({ product }) => {
   return (
     <div className={classes.wrapper}>
-      <div className={classes.product_list}>
+      <div style={{ minHeight: "30rem" }} className={classes.product_list}>
         <ul>
-          {OfferList.map((offer) => {
-            return (
-              <li className={classes.list}>
-                <span>
-                  <img
-                    src="pimg.png"
-                    className="w-1/12 inline-block"
-                    alt="product"
-                  />
-                </span>
-                <div className="inline-block w-16 text-center">
-                  {offer.productName}
-                </div>
-              </li>
-            );
-          })}
+          {product.length ? (
+            product.slice(0, 5).map((offer) => {
+              return (
+                <li className={classes.list}>
+                  <Link to={`/productDetails?param=${offer._id}`}>
+                    <span>
+                      <img
+                        src={offer.imgs[0]}
+                        className="w-1/12 inline pr-4"
+                        alt="product"
+                      />
+                    </span>
+                    <div className="inline w-full text-center">
+                      {offer.title}
+                    </div>
+                  </Link>
+                </li>
+              );
+            })
+          ) : (
+            <div className="empty-List m-10 p-5 h-max align-bottom justify-center items-center flex flex-col">
+              <img
+                src="error-404-4344461-3613889.png"
+                className="opacity-[25%]"
+                style={{ backgroundRepeat: "no-repeat" }}
+                alt=""
+                srcset=""
+              />
+              <p className="text-center">No Advertisements Yet ...</p>
+            </div>
+          )}
         </ul>
         <div className="flex justify-center">
           <div className={classes.offerbtn}>

@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import "./App.css";
 import CollectProductDetails from "./pages/CollectProductDetails";
-import SellForm from "./components/sellForm";
+import SellForm from "./components/SellForm";
 import ProductDetails from "./pages/ProductDetails";
 import SellerBargain from "./pages/Offers";
 import Offers from "./pages/Offers";
@@ -20,7 +20,11 @@ import Myoffers from "./pages/Myoffers";
 import AfterSearch from "./pages/AfterSearch"
 import Team from "./scenes/team";
 // import Myoffers from "./pages/Myoffers"
-
+import AboutUs from "./pages/AboutUs";
+import HelpPage from "./pages/HelpForm";
+import MyAds from "./pages/MyAds";
+import SavedAddresses from './pages/SavedAddresses'
+import Error from './pages/Error'
 
 function App() {
   const [count, setCount] = useState(0);
@@ -37,31 +41,63 @@ function App() {
        
         {
           path:"/Home",
-          element:<Home/>
+          element:<Home/>,
+          errorElement:<Error/>
+        },
+        {
+          path:'/aboutUs',
+          element:<AboutUs/>,
+          errorElement:<Error/>
+        },
+        {
+          path:'/contact',
+          element:<HelpPage/>,
+          errorElement:<Error/>
         },
         {
           path: "/sellProducts",
           element: <CollectProductDetails />,
+          errorElement:<Error/>
         },
         {
           path: "/productDetails",
           element: <ProductDetails />,
+          errorElement:<Error/>
+        },
+        {
+          path:'AfterSearch',
+          element:<AfterSearch/>,
+          errorElement:<Error/>
         },
         {
           path: "/Offers",
           element: <Offers />,
+          errorElement:<Error/>
+        },
+        {
+          path:'/MyAds',
+          element:<MyAds/>,
+          errorElement:<Error/>
         },
         {
           path: "/UserProfile",
           element: <UserProfile />,
+          errorElement:<Error/>
+        },
+        {
+          path:'/savedAdress',
+          element:<SavedAddresses/>,
+          errorElement:<Error/>
         },
         {
           path:"/checkout",
           element:<Checkout />,
+          errorElement:<Error/>
         },
         {
           path:'/MyOffers',
-          element:<Myoffers/>
+          element:<Myoffers/>,
+          errorElement:<Error/>
         }
         
       ],  

@@ -1,5 +1,5 @@
 import React from "react";
-import SellForm from "../components/sellForm";
+import SellForm from "../components/SellForm";
 import FormCard from "../components/FormCard";
 import classes from './CollectProductDetails.module.css'
 const CollectProductDetails = () => {

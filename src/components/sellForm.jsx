@@ -1,7 +1,10 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./SellForm.css";
+import Selector from "./Selector";
+import {useSelector} from 'react-redux'
 
 const SellForm = () => {
+  const authSlice=useSelector((state)=>state.auth)
   const adtitleRef = useRef();
   const descRef = useRef();
   const ageRef = useRef();
@@ -13,8 +16,12 @@ const SellForm = () => {
   const img1ref = useRef();
   const img2ref = useRef();
   const img3ref = useRef();
-
-  const submitHandler = (e) => {
+  const [selectedCatagory,setSelectedCatagory]=useState('');
+  let options=['electronics','automobile','mobiles','furniture','hardware']
+  const selectHandler=(option)=>{
+    setSelectedCatagory(option)
+  }
+  const submitHandler = async(e) => {
     e.preventDefault();
     const title = adtitleRef.current.value;
     const desc = descRef.current.value;
@@ -27,42 +34,61 @@ const SellForm = () => {
     const img1=img1ref.current.value;
     const img2=img2ref.current.value;
     const img3=img3ref.current.value;
-    const address=[addln1,addln2,addln3,city];
+    const address=addln1+addln2+addln3+city;
     const img=[img1,img2,img3];
     const product={
-      title,
-      desc,
-      age,
-      price,
-      address,
-      img
+      title:title,
+      description:desc,
+      tags:selectedCatagory,
+      imgs:img,
+      oldness:age,
+      expectedPrice:price,
+      address:address,
+      owner:authSlice.user.uname
     }
     console.log(product);
+    let response=await fetch('http://localhost:8000/postProduct',{
+      method:'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(product),
+    })
+    let result=await response.json()
+
+    console.log(result);
   };
 
   return (
     <div className="containform">
       <p>Please fill in the details</p>
+      <br />
       <hr />
+      <br />
       <form onSubmit={submitHandler}>
         <p>Ad title:</p>
         <input type="text" ref={adtitleRef} className="adtitl" name="title" />
         <br />
 
 
-        <p>Mention the name of your item with some key features</p>
+        <p className="text-slate-400">Mention the name of your item with some key features</p>
+        <br />
 
         <p>Description</p>
         <textarea ref={descRef} className="adddesc" name="description" />
         <br />
-        <p>Include condition, features and reason for selling</p>
+        <p className="text-slate-400">Include condition, features and reason for selling</p>
+        <br />
 
+        <label htmlFor="selectedOption">Slect Catagory for the product:-</label>
+        <Selector option={options} onSelect={selectHandler}/>
+        <br />
 
         <p>How old is your item</p>
         <input type="text" ref={ageRef} className="addoldness" name="howold" />
         <br />
-        <p>Mention clearly</p>
-
+        <p className="text-slate-400">Mention clearly</p>
+        <br />
         <p>Set price:</p>
         <input
           type="text"
@@ -71,15 +97,18 @@ const SellForm = () => {
           name="setprice"
         />
         <br />
-        <p>In rupees ₹</p>
+        <p className="text-slate-400">In rupees ₹</p>
+        <br />
         <hr />
+        <br />
         <p>
           <i className="fa fa-address-book-o"></i> Please confirm your address
         </p>
         <br />
         <p>Flat, House no., Building, Company, Apartment</p>
         <input className="addflat" ref={addln1Ref} type="text" name="flat" />
-        <p>Address line 1</p>
+        <p className="text-slate-400">Address line 1</p>
+        <br />
         <p>Area, Street, Sector, Village</p>
         <input
           className="addstreet"
@@ -87,7 +116,8 @@ const SellForm = () => {
           type="text"
           name="street"
         />
-        <p>Address line 2</p>
+        <p className="text-slate-400">Address line 2</p>
+        <br />
         <p>Landmark</p>
         <input
           className="addlandmark"
@@ -95,21 +125,26 @@ const SellForm = () => {
           type="text"
           name="landmark"
         />
+        <br />
+        <br />
         <p>Town/City</p>
         <input type="text" ref={cityref} className="addcity" name="city" />
+        <br />
         <hr />
+        <br />
         <p>
-          <i className="fa fa-link"></i> Add Drive link
+          <i className="fa fa-link "></i> Add Drive link
         </p>
         <br />
-        <p>Front View</p>
+        <p >Front View</p>
         <input
           type="text"
           ref={img1ref}
           className="addlandmark"
           name="images1"
         />
-        <p>Paste the Drive link of image</p>
+        <p className="text-slate-400">Paste the Drive link of image</p>
+        <br />
         <p>Back View</p>
         <input
           type="text"
@@ -118,6 +153,7 @@ const SellForm = () => {
           name="images2"
         />
         <p>Paste the Drive link of image</p>
+        <br />
         <p>Side View</p>
         <input
           type="text"
@@ -125,7 +161,8 @@ const SellForm = () => {
           className="addlandmark"
           name="images3"
         />
-        <p>Paste the Drive link of image</p>
+        <p className="text-slate-400">Paste the Drive link of image</p>
+        <br />
         <hr />
         <div
           // id="empty-warning"

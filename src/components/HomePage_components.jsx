@@ -44,62 +44,62 @@ const Categories = () => {
   return (
     <div className = "container1">
       <div className = "catcon">
-        <a className = "category_1" href="/electronics">
+        <Link className = "category_1" to="/Aftersearch?method=tags&searchString=electronics">
           <div className = "categories">
             <img
               className = "catimg"
-              src="/images/electronicscat.png"
+              src="electronicscat.png"
               alt="elecimg"
             />
             <h6>Electronics</h6>
           </div>
-        </a>
-        <a className = "category_1" href="/automobile">
+        </Link>
+        <Link className = "category_1" to="/Aftersearch?method=tags&searchString=automobile">
           <div className = "categories">
-            <img className = "catimg" src="/images/automobiles.png" alt="autoimg" />
+            <img className = "catimg" src="automobiles.png" alt="autoimg" />
             <h6>Automobiles</h6>
           </div>
-        </a>
-        <a className = "category_1" href="/electronics">
+        </Link>
+        <Link className = "category_1" to="/Aftersearch?method=tags&searchString=mobiles">
           <div className = "categories">
             <img
               className = "catimg"
-              src="/images/electronicscat.png"
+              src="smartphone.png"
               alt="elecimg"
             />
             <h6>Moibles</h6>
           </div>
-        </a>
-        <a className = "category_1" href="/electronics">
+        </Link>
+        <Link className = "category_1" to="/Aftersearch?method=tags&searchString=furniture">
           <div className = "categories">
             <img
               className = "catimg"
-              src="/images/electronicscat.png"
+              src="furniture.png"
               alt="elecimg"
             />
             <h6>Furniture</h6>
           </div>
-        </a>
-        <a className = "category_1" href="/electronics">
+        </Link>
+        <Link className = "category_1" to="/Aftersearch?method=tags&searchString=fashion">
           <div className = "categories">
             <img
               className = "catimg"
-              src="/images/electronicscat.png"
+              src="fashioncat.png"
               alt="elecimg"
             />
             <h6>Fashion</h6>
           </div>
-        </a>
-        <a className = "category_1" href="/electronics">
+        </Link>
+        <Link className = "category_1" to="/Aftersearch?method=tags&searchString=electronics">
           <div className = "categories">
             <img
               className = "catimg"
-              src="/images/electronicscat.png"
+              src="hardware.png"
               alt="elecimg"
             />
             <h6>Hardware</h6>
           </div>
-        </a>
+        </Link>
       </div>
     </div>
   );
@@ -118,25 +118,25 @@ const Corousel = () => {
           <div className = "imgtitle">
             Electronics
           </div>
-          <img src="/images/home-appliances.jpg" className = "d-block w-100" alt="empty cell" style={heightstyle}/>
+          <img src="vehicles4.jpg" className = "d-block w-100" alt="empty cell" style={heightstyle}/>
         </div>
         <div className = "carousel-item">
           <div className = "imgtitle">
             Automobiles
           </div>
-          <img src="/images/cars.jpg" className = "d-block w-100" alt="empty cell" style={heightstyle}/>
+          <img src="cars.jpg" className = "d-block w-100" alt="empty cell" style={heightstyle}/>
         </div>
         <div className = "carousel-item">
           <div className = "imgtitle">
             Mobile Phones
           </div>
-          <img src="/images/mobile.jpg" className = "d-block w-100" alt="empty cell" style={heightstyle}/>
+          <img src="mobile.jpg" className = "d-block w-100" alt="empty cell" style={heightstyle}/>
         </div>
         <div className = "carousel-item">
           <div className = "imgtitle">
             Furniture
           </div>
-          <img src="/images/furniture1.jpeg" className = "d-block w-100" alt="..." style={heightstyle}/>
+          <img src="furniture1.jpeg" className = "d-block w-100" alt="..." style={heightstyle}/>
         </div>
         <div className = "carousel-item">
           <div className = "imgtitle">
@@ -244,8 +244,8 @@ const Recommendations = (props) => {
               >
                 <img
                   className="card-img-top"
-                  src={`/images/fsd-product/${imagesArray[index]}`}
-                  style={{ objectFit: 'contain' }}
+                  src={product.imgs[0]}
+                  style={{ objectFit: 'contain',width:'20rem' }}
                   alt="Card image cap"
                 />
                 <div className="card-body">
@@ -253,7 +253,7 @@ const Recommendations = (props) => {
                     <h5 className="card-title">{product.title}</h5>
                   </div>
                   <div className="pdtprice">
-                    <h5>₹{product.setprice}</h5>
+                    <h5 className='text-slate-400'>₹{product.expectedPrice}</h5>
                   </div>
                   <hr style={{ marginTop: 0 }} />
                   {/* <div className="pdtdesc">{product.address}</div> */}

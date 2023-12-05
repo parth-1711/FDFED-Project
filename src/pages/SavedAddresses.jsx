@@ -4,8 +4,8 @@ import { SavedAddresseshead, AddressList , AddNewAddressForm} from '../component
 
 const SavedAddresses = () => {
     return (
-        <div>
-        <SavedAddresseshead />
+        <div className='p-10'>
+        {/* <SavedAddresseshead /> */}
         <AddressList/>
         <AddNewAddressForm/>
         </div>

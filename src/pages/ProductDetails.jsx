@@ -72,8 +72,8 @@ const ProductDetails = () => {
       // console.log(result);
   }
   return (
-    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-      <div className="flex-wrap justify-center p-6">
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-9">
+      <div className="flex-wrap justify-center p-6 mb-6">
         <div className={classes.centerer}>
           <div className={classes.carousel}>
             <ProductImageCarousel images={product1.imgs} />
