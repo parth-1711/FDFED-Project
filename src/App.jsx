@@ -18,6 +18,7 @@ import RegistrationForm from "./pages/SignUp";
 import Myoffers from "./pages/Myoffers";
 // import Home from "./pages/Home"
 import AfterSearch from "./pages/AfterSearch"
+import Team from "./scenes/team";
 // import Myoffers from "./pages/Myoffers"
 import AboutUs from "./pages/AboutUs";
 import HelpPage from "./pages/HelpForm";
@@ -111,8 +112,15 @@ function App() {
       element:<RegistrationForm/>
     },
     {
-      path:"/admin",
+      path:"/admin/*",
       element:<Admin />,
+      // children:[
+        
+      // ]
+    },
+    {
+      path:'/team',
+      element:<Team/>
     }
     
   ]);
