@@ -1,5 +1,6 @@
 import React, { useRef, useState } from "react";
 import "./Navbar.css";
+import 'font-awesome/css/font-awesome.min.css'
 import { Link, NavLink, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import auth, { authActions } from "../store/auth";
@@ -29,7 +30,7 @@ export const Navbar = () => {
   }
 
   return (
-    <nav>
+    <nav style={{height:'10px'}}>
       <div className="navbar-contents">
         <Link to="/home" className="title">
           <div className="logo">
@@ -42,23 +43,33 @@ export const Navbar = () => {
           <div className="titletext">PHOENIX</div>
         </Link>
         <div className="menu" onClick={() => setMenuOpen(!menuOpen)}></div>
-        <form className="searchbar" onSubmit={searchhandler}>
-          <div className="searchicon">
+        <form onSubmit={searchhandler}>
+          {/* <div className="searchicon">
             <img src="search.png" alt="search icon"></img>
           </div>
           <div className="searchtext">
             <input type="text" placeholder="  Search" ref={searchString}></input>
-          </div>
+          </div> */}
+
+          {/* <div> */}
+            <div class="input-group" style={{marginLeft:'10px'}}>
+              <input type="text" class="form-control" style={{width:'500px'}} ref={searchString} placeholder="Search for products" />
+                <div class="input-group-append">
+                  <button class="btn btn-secondary" type="button">
+                  <i class="fa fa-search"></i>
+                  </button>
+                </div>
+            </div>
         </form>
         <ul className={menuOpen ? "open" : ""}>
           <li>
-            <NavLink to="/aboutUs">About</NavLink>
+            <NavLink to="/aboutUs" className='menu-links'>About</NavLink>
           </li>
           <li>
-            <NavLink to="/services">Services</NavLink>
+            <NavLink to="/services" className='menu-links'>Services</NavLink>
           </li>
           <li>
-            <NavLink to="/contact">Contact</NavLink>
+            <NavLink to="/contact" className='menu-links'>Contact</NavLink>
           </li>
         </ul>
 

@@ -191,8 +191,8 @@ const AddNewAddressForm = () => {
           <div id="empty-warning" className="hidden" style={{ textAlign: 'center', color: 'crimson' }}>
             Any field shouldn't be empty!
           </div>
-          <button className="add-btn" id="add-btn" style={{ position: 'absolute', right: '512px' }}>
-            +
+          <button className="add-btn text-center pl-5" id="add-btn" style={{ position: 'relative', left: '37%' , width:'10px'}}>
+            <div className='text-center' >+</div>
           </button>
           <br />
           <br />
